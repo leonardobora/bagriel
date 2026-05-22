@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>:: BAGRIEL.HTML :: O Site Oficial ::</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+  body {
+    margin: 0;
+    background: #000080;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,0.04) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,0.04) 39px 40px);
+    color: #00ff00;
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 20px;
+    text-align: center;
+  }
+
+  pre.ascii {
+    color: #00ffff;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1;
+    text-shadow: 2px 2px 0 #ff00ff;
+    display: inline-block;
+    text-align: left;
+    margin: 10px 0;
+  }
+
+  pre.banner {
+    color: #ffff00;
+    font-size: 12px;
+    text-shadow: 3px 3px 0 #ff0000, 6px 6px 0 #000;
+  }
+
+  /* WordArt CSS clássico do Word 97 */
+  .wordart {
+    display: inline-block;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: transparent;
+    background: linear-gradient(180deg, #ffff00 0%, #ff8800 50%, #ff0000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 3px #000;
+    text-shadow:
+      4px 4px 0 #800080,
+      8px 8px 0 #000;
+    transform: skewY(-5deg) perspective(300px) rotateX(15deg);
+    margin: 30px 0;
+    padding: 0 20px;
+  }
+
+  .wordart.rainbow {
+    background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .wordart.curvado {
+    font-size: 56px;
+    transform: skewX(-10deg);
+    background: linear-gradient(180deg, #00ffff 0%, #0000ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow:
+      3px 3px 0 #ff00ff,
+      6px 6px 0 #000;
+  }
+
+  .secao {
+    background: rgba(0, 0, 0, 0.6);
+    border: 4px ridge #c0c0c0;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: left;
+  }
+
+  .secao h2 {
+    text-align: center;
+    color: #ff00ff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    text-shadow: 2px 2px 0 #000;
+    border-bottom: 2px dashed #ffff00;
+    padding-bottom: 10px;
+  }
+
+  .fato {
+    margin: 12px 0;
+    padding: 8px 12px;
+    background: rgba(255, 255, 0, 0.1);
+    border-left: 6px double #00ff00;
+  }
+
+  .fato .label {
+    color: #ffff00;
+    font-weight: bold;
+  }
+
+  blockquote {
+    border-left: 4px solid #ff00ff;
+    margin: 16px 0;
+    padding: 8px 16px;
+    background: rgba(255, 0, 255, 0.08);
+    font-style: italic;
+    color: #00ffff;
+  }
+
+  blockquote::before { content: '" '; color: #ff00ff; font-size: 32px; }
+  blockquote::after  { content: ' "'; color: #ff00ff; font-size: 32px; }
+
+  .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .moldura {
+    background: #c0c0c0;
+    padding: 8px;
+    border: 3px outset #fff;
+    display: inline-block;
+  }
+
+  .moldura pre {
+    background: #000;
+    color: #00ff00;
+    margin: 0;
+    padding: 8px;
+    font-size: 11px;
+    line-height: 1.1;
+  }
+
+  .moldura .legenda {
+    color: #000;
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  marquee {
+    background: #000;
+    color: #ffff00;
+    border: 2px solid #ff0000;
+    padding: 6px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+
+  .hitcounter {
+    display: inline-block;
+    background: #000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    padding: 6px 12px;
+    border: 3px inset #c0c0c0;
+    letter-spacing: 4px;
+  }
+
+  footer {
+    margin-top: 40px;
+    color: #c0c0c0;
+    font-size: 14px;
+  }
+
+  a.botao-90s {
+    display: inline-block;
+    background: linear-gradient(180deg, #ff00ff, #800080);
+    color: #ffff00;
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 3px outset #ff00ff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    margin: 8px;
+  }
+  a.botao-90s:active { border-style: inset; }
+
+  .glow {
+    animation: glow 1.2s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff00ff; }
+    to   { text-shadow: 0 0 16px #00ffff, 0 0 32px #00ffff; }
+  }
+</style>
+</head>
+<body>
+
+  <marquee scrollamount="8">★ BEM-VINDO AO SANTUÁRIO DIGITAL DO BAGRIEL ★ ÚLTIMA ATUALIZAÇÃO: HOJE ★ MELHOR VISUALIZADO NO INTERNET EXPLORER 6 ★ NÃO ROUBE MEUS GIFS ★</marquee>
+
+  <pre class="ascii banner">
+██████╗  █████╗  ██████╗ ██████╗ ██╗███████╗██╗
+██╔══██╗██╔══██╗██╔════╝ ██╔══██╗██║██╔════╝██║
+██████╔╝███████║██║  ███╗██████╔╝██║█████╗  ██║
+██╔══██╗██╔══██║██║   ██║██╔══██╗██║██╔══╝  ██║
+██████╔╝██║  ██║╚██████╔╝██║  ██║██║███████╗███████╗
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝
+  </pre>
+
+  <div class="wordart">MEU CARO</div><br>
+  <div class="wordart rainbow">AMIGO</div><br>
+  <div class="wordart curvado">BAGRIEL</div>
+
+  <p class="glow">★彡 O homem. A lenda. O mito. 彡★</p>
+  <p style="color:#ffff00; font-family:'Press Start 2P', monospace; font-size:13px; margin-top:-10px;">
+    ※ AVISO IMPORTANTE: é BAGRIEL. NÃO É GABRIEL. ※
+  </p>
+
+  <!-- ============ QUEM É ============ -->
+  <section class="secao">
+    <h2>~ * QUEM É BAGRIEL? * ~</h2>
+
+    <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
+      <div class="moldura">
+<pre>
+   .---------------.
+  /                 \
+ |   ___     ___    |
+ |  (   )   (   )   |
+ |   ‾‾‾     ‾‾‾    |
+ |        .         |
+ |       ___        |
+ |    \_______/     |
+  \                /
+   '--------------'
+       BAGRIEL
+</pre>
+        <div class="legenda">retrato oficial (2026)</div>
+      </div>
+
+      <div style="flex:1; min-width:280px;">
+        <p>Bagriel é, antes de tudo, <b style="color:#ffff00">um Engenheiro Mecânico</b>. Mas reduzi-lo a isso seria como dizer que a Mona Lisa é só uma mulher sorrindo.</p>
+        <p>Formado pela <b>UTFPR</b> (Curitiba, PR), fala <b style="color:#00ffff">alemão em nível profissional</b> — sim, o homem pediu currywurst em Stuttgart sem gaguejar.</p>
+        <p>Atualmente é <b style="color:#ff00ff">Trainee na Lightera</b>. Antes disso passou pela HORSCH desenvolvendo Digital Twins de pulverizadores, e pela Bosch nos dois lados do oceano.</p>
+        <p style="color:#ffff00;">Nas horas vagas, ajuda a tocar a fazenda de soja, milho, feijão e trigo da família em Palmeira/PR. Porque um título só não bastava.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FATOS ============ -->
+  <section class="secao">
+    <h2>:: FATOS LENDÁRIOS ::</h2>
+
+    <div class="fato">
+      <span class="label">FATO 01 →</span> Contribuiu com o desenvolvimento e <b style="color:#ff00ff">processo de patente de um algoritmo de IA</b> que detecta falha em motor <i>pelo som</i>. Sim, o cara ensinou máquinas a escutarem.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 02 →</span> Na Aerodesign UTFPR, fez o avião ganhar <b style="color:#ffff00">+9,8% de MTOW</b> (peso máximo de decolagem) em relação ao projeto anterior. Aerodinâmica é com ele.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 03 →</span> Fez interface com a <b>Bosch Japão</b> durante a transferência de 2 bombas injetoras pra Curitiba. Coordenou adaptação de bancada de teste falando — provavelmente — quatro idiomas no mesmo email.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 04 →</span> Idiomas confirmados: Português (nativo), Inglês (nativo/bilíngue), <b style="color:#00ffff">Alemão (profissional pleno)</b>, Espanhol (básico, mas finge bem). Coeficiente de "consigo conversar nessa cidade": <b style="color:#ff00ff">acima da escala</b>.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 05 →</span> Lidera estudo de viabilidade de <b>Green Assets</b> na fazenda da família: Créditos de Carbono, Green CPR, certificações de soja. Engenheiro mecânico que também salva o planeta no fim de semana.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 06 →</span> Construiu Digital Twin de pulverizador agrícola na HORSCH. Em CATIA. Em PLM. Em fluência. Em paz.
+    </div>
+    <div class="fato">
+      <span class="label">FATO 07 →</span> Tem <i>The Web Developer Bootcamp</i> no currículo. Ironia: este site cursed em WordArt foi feito por outra pessoa. Não julguem.
+    </div>
+  </section>
+
+  <!-- ============ FRASES ============ -->
+  <section class="secao">
+    <h2>~ FRASES MARCANTES ~</h2>
+
+    <blockquote>
+      Eu só quero entender como as coisas funcionam.
+      <br><small style="color:#c0c0c0;">— Bagriel, e logo depois patenteou uma IA</small>
+    </blockquote>
+
+    <blockquote>
+      Ja, das geht.
+      <br><small style="color:#c0c0c0;">— Bagriel, resolvendo um problema em Stuttgart Feuerbach</small>
+    </blockquote>
+
+    <blockquote>
+      A soja não vai se plantar sozinha. Mas o digital twin do pulverizador, esse sim.
+      <br><small style="color:#c0c0c0;">— Bagriel, provavelmente, entre uma reunião e uma colheita</small>
+    </blockquote>
+
+    <blockquote>
+      Lifelong Learner.
+      <br><small style="color:#c0c0c0;">— Bagriel, no próprio LinkedIn, e a gente acredita</small>
+    </blockquote>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section class="secao">
+    <h2>>> GALERIA OFICIAL <<</h2>
+    <p style="text-align:center; color:#c0c0c0;">(fotos reais em breve. por enquanto: arte renascentista em ASCII.)</p>
+
+    <div class="galeria">
+      <div class="moldura">
+<pre>
+    \o/
+     |
+    / \
+  bagriel
+  em ação
+</pre>
+        <div class="legenda">"Aerodesign UTFPR, +9.8% MTOW" (2022)</div>
+      </div>
+
+      <div class="moldura">
+<pre>
+   ___
+  /o o\
+  \ ~ /
+   ---
+  /| |\
+   | |
+  in Stuttgart
+   we trust
+</pre>
+        <div class="legenda">"Estágio Bosch Alemanha" (2023)</div>
+      </div>
+
+      <div class="moldura">
+<pre>
+  | | | | |
+  | soja  |
+  | milho |
+  | trigo |
+  |feijão |
+  ‾‾‾‾‾‾‾‾‾
+  Fazenda
+  Iracema
+</pre>
+        <div class="legenda">"Engenheiro também colhe" (2024)</div>
+      </div>
+
+      <div class="moldura">
+<pre>
+   ▓▓▓▓▓▓▓
+   ▓ ░░░ ▓
+   ▓ ░B░ ▓
+   ▓ ░░░ ▓
+   ▓▓▓▓▓▓▓
+    CATIA
+   loading...
+</pre>
+        <div class="legenda">"Digital Twin, HORSCH" (2025)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LINHA DO TEMPO ============ -->
+  <section class="secao">
+    <h2>// LINHA DO TEMPO //</h2>
+<pre class="ascii" style="font-size:13px;">
+       2019 ───────●  Ingresso na UTFPR — começa a saga do Eng. Mecânico.
+                   │
+       2021 ───────●  Entra no Aerodesign UTFPR, divisão Aerodinâmica.
+                   │
+       2022 ───────●  Bosch Curitiba — Diesel Systems. Patenteia IA que
+                   │   ouve motores. Sim, ouve. Como um sommelier.
+                   │
+       2023 ───────●  Stuttgart, Alemanha. Bosch HQ + University of
+                   │   Stuttgart. Aprende a falar "Feierabend" no tom certo.
+                   │
+       2024 ───────●  Volta. Começa a tocar gestão da Fazenda Iracema
+                   │   em paralelo. Soja, milho, trigo, feijão, paciência.
+                   │
+       2025 ───────●  HORSCH — R&D Sprayers. Digital Twin de pulverizador.
+                   │   E ainda formou em Eng. Mecânica em dezembro.
+                   │
+       2026 ───────●  Lightera. Trainee. Próximo capítulo abrindo.
+                   │
+       FUTURO ─────●  CTO de alguma coisa. Provavelmente em alemão.
+</pre>
+  </section>
+
+  <!-- ============ PODERES ============ -->
+  <section class="secao">
+    <h2>※ ARSENAL DE PODERES ※</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+      <div style="min-width:220px;">
+        <p style="color:#ffff00; text-align:center;">⚙ FERRAMENTAS ⚙</p>
+        <div class="fato">CATIA (3D + 2D)</div>
+        <div class="fato">PLM Systems</div>
+        <div class="fato">Power BI</div>
+        <div class="fato">MATLAB</div>
+        <div class="fato">Scrum / Agile</div>
+      </div>
+
+      <div style="min-width:220px;">
+        <p style="color:#ffff00; text-align:center;">🗣 IDIOMAS 🗣</p>
+        <div class="fato">Português &mdash; nativo</div>
+        <div class="fato">Inglês &mdash; nativo / bilíngue</div>
+        <div class="fato">Alemão &mdash; profissional pleno</div>
+        <div class="fato">Espanhol &mdash; básico, mas vai</div>
+      </div>
+
+      <div style="min-width:220px;">
+        <p style="color:#ffff00; text-align:center;">🏅 CERTIFICAÇÕES 🏅</p>
+        <div class="fato">Power BI &mdash; Básico ao Avançado</div>
+        <div class="fato">Web Developer Bootcamp</div>
+        <div class="fato">Mecânica Automotiva</div>
+        <div class="fato">MATLAB Onramp</div>
+        <div class="fato">Indústria 4.0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="secao">
+    <h2>:: COMO ENCONTRAR BAGRIEL ::</h2>
+    <p style="text-align:center;">
+      <a class="botao-90s" href="mailto:gabrielbgsa@gmail.com">📧 EMAIL</a>
+      <a class="botao-90s" href="https://www.linkedin.com/in/gabriel-busch" target="_blank" rel="noopener">💼 LINKEDIN</a>
+      <a class="botao-90s" href="#">📍 CURITIBA, PR</a>
+    </p>
+    <p style="text-align:center; color:#c0c0c0;">
+      (e se ele não responder em português, tente em alemão)
+    </p>
+  </section>
+
+  <footer>
+    <p>Visitas neste santuário: <span class="hitcounter">00042</span></p>
+    <p>© 2026 — Fan site não-oficial-mas-na-real-bem-oficial do Bagriel.</p>
+    <p style="color:#ffff00;">Bagriel é Gabriel Busch Gomes de Sá. Mas é BAGRIEL. Isso é importante.</p>
+    <p style="color:#666;">Feito com 100% HTML puro, 0% framework, 200% amor.</p>
+<pre class="ascii" style="font-size:10px; color:#ff00ff;">
+        ♥  ♥     ♥  ♥
+       ♥    ♥   ♥    ♥
+        ♥    ♥ ♥    ♥
+         ♥    ♥    ♥
+          ♥       ♥
+           ♥     ♥
+            ♥   ♥
+             ♥ ♥
+              ♥
+</pre>
+  </footer>
+
+</body>
+</html>
